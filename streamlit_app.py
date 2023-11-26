@@ -38,6 +38,7 @@ predicted_price = model.predict(df)
 
  st.title("Pizza Price Predictor")
  st.header(f"price: {predicted_price.values[0]:.2f} €")
+ 
 
 st.sidebar.write("Toppings")
 topping1 = st.sidebar.selectbox(label=f"#1 - sauce", options=(["no sauce", "Tomato Sauce", "Pesto", "Alfredo"]), label_visibility="collapsed")
@@ -51,6 +52,19 @@ distance = st.sidebar.select_slider("Distance from City Center", [1, 3, 5, 10], 
 location_labels = {0: "Take-Away", 1: "Dine-In"}
 location_choice = st.sidebar.radio("Location", [0, 1], format_func=lambda x: location_labels[x])
 rating = st.sidebar.select_slider("Restaurant Raiting", [1, 2, 3, 4, 5, 6], 4, format_func=lambda x: f"{x * '★'}")
+
+pizza_data_record = {
+    'Intercept': 2,                     #
+    'Topping 1': int(not topping1.startswith("no")),  # 0: no, 1: yes
+    'Topping 2': int(not topping2.startswith("no")),  # 0: no, 1: yes
+    'Topping 3': int(not topping3.startswith("no")),  # 0: no, 1: yes
+    'Size': pizza_size,                               # 0: Small, 1: Large, 2: Big
+    'Extras Sauce': int(extra_sauce),                 # 0: no, 1: yes
+    'Extra Cheese': int(extra_cheese),                # 0: no, 1: yes
+    'Distance to City Center (km)': distance,         # 1,3,5,10 km
+    'Restaurant': location_choice,                    # 0: Take-Away, 1: Dine-In
+    'Rating': rating                                  # 1,2,3,4,5,6 Stars
+}
 
 
 
