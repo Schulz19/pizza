@@ -13,5 +13,9 @@ def create_model(csv_file):
     model = sm.OLS(y_train, X_train).fit()
     return model
 
+model = create_model(csv_file="pizza_dataset_relative_price.csv")
+st.write(model.summary())
+
+
 
 
