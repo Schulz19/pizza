@@ -37,6 +37,7 @@ predicted_price = model.predict(df)
 # st.write(f"Predicted Price for the User's Pizza: {predicted_price.values[0]}")
 
 st.title("Pizza Price Predictor")
+st.header(f"price: {price:.2f} €")
 
 
 
