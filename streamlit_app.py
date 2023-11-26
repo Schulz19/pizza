@@ -34,7 +34,9 @@ st.write(df)
 st.write(df.transpose())
 
 predicted_price = model.predict(df)
-st.write(f"Predicted Price for the User's Pizza: {predicted_price.values[0]}")
+# st.write(f"Predicted Price for the User's Pizza: {predicted_price.values[0]}")
+
+st.title("Pizza Price Predictor")
 
 
 
