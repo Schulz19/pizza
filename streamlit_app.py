@@ -14,7 +14,7 @@ def create_model(csv_file):
     return model
 
 model = create_model(csv_file="pizza_dataset_relative_price.csv")
-st.write(model.summary())
+# st.write(model.summary())
 
 pizza_data_record = {
     'Intercept': 2,                     #
@@ -30,8 +30,8 @@ pizza_data_record = {
 }
 
 df = pd.DataFrame([pizza_data_record])
-st.write(df)
-st.write(df.transpose())
+# st.write(df)
+# st.write(df.transpose())
 
 predicted_price = model.predict(df)
 # st.write(f"Predicted Price for the User's Pizza: {predicted_price.values[0]}")
