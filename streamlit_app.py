@@ -53,6 +53,16 @@ location_labels = {0: "Take-Away", 1: "Dine-In"}
 location_choice = st.sidebar.radio("Location", [0, 1], format_func=lambda x: location_labels[x])
 rating = st.sidebar.select_slider("Restaurant Raiting", [1, 2, 3, 4, 5, 6], 4, format_func=lambda x: f"{x * '★'}")
 
+# generate pizza image
+def sidebar():
+    ...
+    return pizza_data_record, [topping1, topping2, topping3]
+
+pizza_data_record, toppings = sidebar()
+
+# remove "no ..." toppings
+toppings = [topping for topping in toppings if not topping.startswith("no ")]
+
 
 
 
