@@ -30,14 +30,14 @@ pizza_data_record = {
 }
 
 df = pd.DataFrame([pizza_data_record])
- st.write(df)
- st.write(df.transpose())
+# st.write(df)
+ # st.write(df.transpose())
 
 predicted_price = model.predict(df)
 # st.write(f"Predicted Price for the User's Pizza: {predicted_price.values[0]}")
 
-# st.title("Pizza Price Predictor")
-# st.header(f"price: {predicted_price.values[0]:.2f} €")
+ st.title("Pizza Price Predictor")
+ st.header(f"price: {predicted_price.values[0]:.2f} €")
 
 st.sidebar.write("Toppings")
 topping1 = st.sidebar.selectbox(label=f"#1 - sauce", options=(["no sauce", "Tomato Sauce", "Pesto", "Alfredo"]), label_visibility="collapsed")
